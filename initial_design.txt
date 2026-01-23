@@ -1,0 +1,5 @@
+Notification Dispatcher
+1. Obeserver pattern to publish(update) notification to subscribers
+2. Sender, Reciver, send all 
+3. Notification Channels -> EmailChannel, SMSChannel, PushChannel
+4. Retry Policy
