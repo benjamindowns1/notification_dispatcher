@@ -1,25 +1,14 @@
-#include <iostream>
-using namespace std;
+#include "RetryPolicy.h"
+#include <thread>
+#include <chrono>
 
-// Retry Policy -> Strategy
-class RetryPolicy
-{
-public:
-    explicit RetryPolicy(int maxRetries) : maxRetries_(maxRetries) {}
+bool RetryPolicy :: execute(std :: function<bool()> operation){
+    for(int i =0;i<maxRetries; i++){
+        if(operation())
+            return true;
 
-    template <typename Func>
-    bool execute(Func &&func)
-    {
-        for (int attempt = 1; attempt <= maxRetries_; ++attempt)
-        {
-            if (func())
-            {
-                return true;
-            }
-        }
-        return false;
+        std::this_thread ::sleep_for
+        (std::chrono::milliseconds(delaysMs));
     }
-
-private:
-    int maxRetries_;
-};
+    return false;
+}

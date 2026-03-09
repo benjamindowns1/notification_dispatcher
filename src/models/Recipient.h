@@ -14,4 +14,4 @@ class Recipient {
     const std :: string& getEmail() const {return email;}
     const std ::string &getPhone() const { return phone; }
     const std ::string &getDeviceId() const { return deviceId; }
-}
+};

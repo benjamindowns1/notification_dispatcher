@@ -1,5 +1,5 @@
 # pragma once
-# include "../Notification.h"
+# include "./models/Notification.h"
 
 
 enum class ChannelType {
